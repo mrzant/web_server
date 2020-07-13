@@ -15,7 +15,7 @@ typedef enum{false, true} boolean;
 struct sockaddr_in name;
 
 /* thread ids */
-pthread_t thread, thread_s;
+pthread_t thread;
 
 /* thread attribute */
 pthread_attr_t attr;
@@ -26,6 +26,5 @@ int *string_indices(char *string);
 char *slice_string(int start, int end, char *string);
 int check_route(char *route);
 void *function(void *ptr);
-int sensor(void);
 
 #endif
