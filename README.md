@@ -1,7 +1,6 @@
 # HTTP Server
 This repository contains code for the simple HTTP server with sockets using TCP which listens on 8080 port. Server uses POSIX threads to handle multiple clients at the same time. 
-The implementation was done on Raspberry Pi 4 which runs Raspbian OS with interfaced temperature and humidity sensor (DHT11). Server only suports GET operation for accessing root (/) and sensor resource (/<sensor>).
-For unpermitted operations it returns 405 Status, while for accessing unexisting resources it responds with 404 status. 
+The implementation was done on Raspberry Pi 4 which runs Raspbian OS with interfaced temperature and humidity sensor (DHT11). Server only suports GET operation for accessing root and sensor resource. For unpermitted operations it returns 405 Status, while for accessing unexisting resources it responds with 404 status. 
 
 # Implementation
 In the implementation server passively waits for a connection, while the client is the one which initates the communication. 
@@ -21,7 +20,7 @@ access to the GPIO [BCM2835](https://www.airspayce.com/mikem/bcm2835/).
 ```
  RPi               DHT11
 ----------------------------
-Pin 7			   Data
+Pin 7              Data
 Pin 14 (GND)       GND
 Pin 4 (5V)         Vcc
 ----------------------------
@@ -31,7 +30,7 @@ Pin 4 (5V)         Vcc
 # Usage
 
 Run `$ make` in `src/` directory and start with `$./webserver 8080`. The server was tested with curl. To send GET request when the server is running type `$ curl -X GET -H "Content-Type: text/plain" "http://127.0.0.1:8080/<sensor>"`. 
-The response from root ('/') is `Hello world!`, while from the sensor ('/<sensor>') is `Temperature: xx.xx, Humidity: xx.xx`.
+The response from root (`/`) is `Hello world!`, while from the sensor (`/<sensor>`) is `Temperature: xx.xx, Humidity: xx.xx`.
 
 ## Error Status 
 Response to client in case of unpermitted operations. 
