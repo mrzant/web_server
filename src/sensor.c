@@ -59,7 +59,7 @@ int sensor(void) {
 	/* Checksum */
 	if ( data[0]+data[1]+data[2]+data[3] == data[4] ) { 
 
-		sprintf(temp_hum, "Temperature: %.2f, Humidity: %.2f", data[2]+(data[3]*0.01), data[0]+(data[1]*0.01));
+		sprintf(temp_hum, "Temperature: %.2f, Humidity: %.2f\n", data[2]+(data[3]*0.01), data[0]+(data[1]*0.01));
 		return SUCCESS;
 	} 
 

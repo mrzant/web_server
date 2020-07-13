@@ -9,9 +9,9 @@
 
 /* HTTP Responses*/
 const char *const GET = "GET";
-const char *const MNA = "HTTP/1.1 405 Method Not Allowed\nAllow: GET\nContent-Type: text/plain\n\nStatus: 405 Method Not Allowed\nOnly GET Method Allowed";
-const char *const OK = "HTTP/1.1 200 OK\nContent-Type: text/plain\n\nHello world!";
-const char *const PNF = "HTTP/1.1 404 Not Found\nContent-Type: text/plain\n\nStatus: 404 Page Not Found\nThe requested resource was not found on this server";
+const char *const MNA = "HTTP/1.1 405 Method Not Allowed\nAllow: GET\nContent-Type: text/plain\n\nStatus: 405 Method Not Allowed\nOnly GET Method Allowed\n";
+const char *const OK = "HTTP/1.1 200 OK\nContent-Type: text/plain\n\nHello world!\n";
+const char *const PNF = "HTTP/1.1 404 Not Found\nContent-Type: text/plain\n\nStatus: 404 Page Not Found\nThe requested resource was not found on this server\n";
 
 /* Mutex initializer*/
 pthread_mutex_t mutex1 = PTHREAD_MUTEX_INITIALIZER;
@@ -95,7 +95,7 @@ char *slice_string(int start, int end, char *string) {
 /* Checks if the route matches with existing resources */
 int check_route(char *route) {
 
-	if ( ((strcmp("/<sensor>", route)) == false) || ((strcmp("/", route)) == false) ) return true;
+	if ( ((strcmp("/sensor", route)) == false) || ((strcmp("/", route)) == false) ) return true;
 
 	else return false;
 }
